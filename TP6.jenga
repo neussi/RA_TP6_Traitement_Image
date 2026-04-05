@@ -1,0 +1,14 @@
+from Jenga import *
+
+with workspace("TP_RA_Patrice", location="."):
+    configurations(["Debug", "Release"])
+    targetoses([TargetOS.LINUX])
+    targetarchs([TargetArch.X86_64])
+
+    with project("TP6"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["main.cpp"])
+        objdir("Build/Obj/%{cfg.buildcfg}/%{prj.name}")
+        targetdir("Build/Bin/%{cfg.buildcfg}")
